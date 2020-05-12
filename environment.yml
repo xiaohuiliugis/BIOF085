@@ -1,8 +1,9 @@
-name: ds
+name: biof085
 channels:
   - conda-forge
   - defaults
 dependencies:
+  - python=3.5
   - numpy
   - sympy
   - pandas
@@ -14,5 +15,4 @@ dependencies:
   - rise
   - jupytext
   - openpyxl
-prefix: /Users/abhijit/opt/miniconda3/envs/ds
 
