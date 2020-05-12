@@ -1,0 +1,264 @@
+---
+title: "Introduction to Data Science using Python"
+author: "Abhijit Dasgupta, PhD"
+date: "May 12-14, 2020"
+output: 
+  revealjs::revealjs_presentation:
+    theme: moon
+    highlight: pygments
+    self_contained: false
+    reveal_plugins: ["notes", "chalkboard"]
+    reveal_options:
+      chalkboard:
+        theme: whiteboard
+        toggleNotesButton: true
+      slideNumber: true
+      previewLinks: true
+---
+
+```{r preamble, include = F}
+knitr::opts_chunk$set(echo = F, warning=F, message=F)
+pacman::p_load(char=c('tidyverse', 'broom'))
+```
+
+# Abhijit Dasgupta
+
+## Background
+
++ Ph.D. in biostatistics (University of Washington)
++ Post-doctoral training at National Cancer Institute
+
+## Experience
+
++ Biostatistician and data scientist
++ Associated with NIH for over 15 years
++ Over 15 years experience in Python, 20 years in R
++ Teaches data science, statistics, programming and data visualization
+    - NIH
+    - Georgetown
+    - Other government agencies, corporations
+
+# Online workshops<br/>A brave new world
+
+## Structure
+
+This workshop will be using hybrid methods
+
+## Face-to-face
+
+We will have face-to-face contact for about 50% of the time, through Zoom
+
+This will include lectures, exercies, Q & A
+
+## Online material
+
+  a. screencasts
+  b. slides
+  c. videos
+  d. progress checks
+
+## Supplemental material
+
+There are PDF versions of Jupyter notebooks in Canvas, with links to actual notebooks
+
+# Schedule
+
+## Day One
+
+| Day   | Time          | Format                | Topics                                                       |
+| ----- | ------------- | --------------------- | ------------------------------------------------------------ |
+| Day 1 | 9am - noon    | In-person on Zoom     | Why data science in Python?<br />A Python primer for Data Science |
+|       | 1pm - 2pm     | In-person on Zoom     | Python tools for data science<br />Data wrangling, cleaning, summarizing and munging |
+|       | 2pm-4pm       | Asynchronous material | Data munging                                                 |
+|       | 4pm-4:30pm    | In-person on Zoom     | Q & A                                                        |
+|       |               |                       |                                                              |
+
+## Day Two
+
+| Day   | Time          | Format                | Topics                                                       |
+| ----- | ------------- | --------------------- | ------------------------------------------------------------ |
+| Day 2 | 9am-10 am     | In person using Zoom  | Data visualization                                           |
+|       | 10am-noon     | Asynchronous material | Data visualization                                           |
+|       | 1pm-2pm       | In person using Zoom  | Statistical Analysis using Python                            |
+|       | 2pm-4pm       | Asynchronous material | Statstistical Analysis using Python                          |
+|       | 4pm-4:30pm    | In-person using Zoom  | Q & A                                                        |
+|       |               |                       |                                                              |
+
+
+## Day Three
+
+
+| Day   | Time          | Format                | Topics                                                       |
+| ----- | ------------- | --------------------- | ------------------------------------------------------------ |
+| Day 3 | 9am-10am      | In person using Zoom  | Data analytics; Machine Learning                             |
+|       | 10am-noon     | Asynchronous material | Data analytics; Machine Learning                             |
+|       | 1pm-2pm       | In person using Zoom  | String manipulation; Introduction to bioinformatics          |
+|       | 2pm-3:30pm    | Asynchronous material | Introduction to bioinformatics; working with other languages; <br />additional resources |
+|       | 3:30pm-4:30pm | In-person using Zoom  | Q & A, Miscellaneous topics                                  |
+
+## Adaptability
+
+There will be some flexibility in materials depending on progress, interests, etc.
+
+Not much though, since we don't have much time
+
+# Communications
+
+## Slack
+
++ I will be available on Slack throughout the 3 days and beyond. Please use for questions, comments, private messages and the like. 
++ I will also send polls for feedback
+
+## E-mail
+
+Email is less preferred, but is okay for longer form messages or more detailed questions
+
+adasgupta@districtdatalabs.com
+
+# Introductions
+
+##
+
++ Who are you?
++ What is your background?
++ Why are you here?
+
+
+# Who is a data scientist?
+
+## One definition
+
+
+![](graphs/Data_Science_VD.png)
+
+<aside class="notes">
+1. It's the confluence of statistics, computer science, domain knowledge
+2. You need all three to make this work
+3. We'll be talking more about stat/CS than domain expertise here
+
+</aside>
+
+## Unclear definition
+
++ Statistician
++ Computer scientist
++ Database engineer
++ Software engineer
++ Data engineer
++ Mathematician
+
+Some of the best ones I know are <br/>
+neurobiologists and physicists
+
+## A broad umbrella
+
+Anyone who wants to work with data to solve problems within particular domains
+
+# Data Science
+
+## What it involves
+
+1. Managing and cleaning data
+1. Interest in exploring relationships between things, informed by domain knowledge
+
+
+1. Statistical know-how
+1. Computational skills
+
+1. Tools
+
+## We're here for the tools
+
+The main two tools are
+
+1. Python (https://www.python.org)
+1. R (https://www.r-project.org)
+
+There is a perpetual flame war between the two camps
+
+That is not important
+
+# Why Python?
+
+## Pros
+
+1. Very popular general purpose programming language
+1. Strong ecosystem through packages (over 230K projects)
+1. Succint syntax 
+1. Reasonably fast while also relatively easy to program
+    
+    + Computational time vs Developer time
+1. Self-documenting
+1. Easier to integrate into production pipelines that already use Python
+    + Web frameworks (Django, Flask, ...)
+    + Workflow managers (Luigi, ...)
+1. Increasingly strong Data Science Stack
+
+    
+## Cons
+
+1. Not a rich-enough ecosystem for some purposes
+1. More computer science-y, less statistical
+1. Poorer frameworks for display and dissemination of information
+
+These are areas where R tends to shine. 
+
+## Python Data Science stack
+
+Contributed packages over past 30 years
+
++ To emulate Matlab
+    + Numpy
+    + Scipy
+    + Matplotlib
++ To emulate Maple
+    + Sympy
++ To add statistics/data science
+    + Pandas
+    + Various data visualization packages
+        - seaborn
+        - plotly
+
+## Python Data Science stack
+
++ Many more user-contributed packages
++ The basic philosophy has been to concentrate on a few monolithic comprehensive packages
+    - statsmodels (Statistics)
+    - scikit-learn (Machine Learning)
+    - pillow (Image analysis)
+    - nltk (Natural Language Processing)
+    - tensorflow & PyTorch (Deep learning)
+    - PyMC3 (Bayesian learning)
+    
+## Python as glue
+
+![](graphs/r_py_glue.png)
+
+* The `rpy2` Python package is not developed on Windows
+* The `reticulate` R package actually works quite well
+
+## Python as glue
+
+1. Data I/O
+    + We can read data from a variety of formats into Python
+        - Some proprietary
+        - R, SAS, Stata, SQL, Parquet, JSON
+1. There are ways of running R, SAS, others from within Python
+1. The Jupyter sub-ecosystem allows the same interface for [many languages](https://github.com/jupyter/jupyter/wiki/Jupyter-kernels)
+    + R, SAS, Julia, Haskell, Javascript
+
+# Our path through this workshop
+
+## Outline
+
+1. A Python primer to get the basics of the language
+2. Using pandas for data I/O, manipulation, cleaning and munging
+3. Using matplotlib and seaborn for data visualization
+4. Using pandas, scipy and statsmodels for statistics
+5. Using scikit-learn for basic machine learning
+6. Applications
+    + General examples
+    + High-level bioinformatics
+    + High-level string manipulation
+7. Introducing resources for further study
+

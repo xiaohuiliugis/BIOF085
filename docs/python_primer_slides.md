@@ -13,28 +13,60 @@ jupyter:
     name: python3
 ---
 
+<!-- #region slideshow={"slide_type": "slide"} -->
 # A Python Primer
+<!-- #endregion -->
 
-
+<!-- #region slideshow={"slide_type": "slide"} -->
 ## Introduction
 
-Python is a popular, general purpose scripting language. The [TIOBE index](https://www.tiobe.com/tiobe-index/) ranks Python as the third most popular programming language after C and Java, while this recent article in IEEE Computer Society says
+Python is a popular, general purpose scripting language. 
 
+Python as the third most popular programming language after C and Java
+<!-- #endregion -->
+
+<!-- #region slideshow={"slide_type": "subslide"} -->
 > "Python can be used for web and desktop applications, GUI-based desktop applications, machine learning, data science, and network servers. The programming language enjoys immense community support and offers several open-source libraries, frameworks, and modules that make application development a cakewalk." ([Belani, 2020](https://www.computer.org/publications/tech-news/trends/programming-languages-you-should-learn-in-2020))
+<!-- #endregion -->
 
+<!-- #region slideshow={"slide_type": "slide"} -->
 ### Python is a modular language
 
-Python is not a monolithic language but is comprised of a base programming language and numerous modules or libraries that add functionality to the language. Several of these libraries are installed with Python. The Anaconda Python Distribution adds more libraries that are useful for data science. Some libraries we will use include `numpy`, `pandas`, `seaborn`, `statsmodels` and `scikit-learn`. In the course of this workshop we will learn how to use Python libraries in your workflow.
+Python is 
 
++ a base programming language and 
++ numerous modules or libraries that add functionality to the language. 
+<!-- #endregion -->
+
+<!-- #region slideshow={"slide_type": "slide"} -->
 ### Python is a scripting language
 
-Using Python requires typing!! You write *code* in Python that is then interpreted by the Python interpreter to make the computer implement your instructions. Your code is like a recipe that you write for the computer. Python is a *high-level language* in that the code is English-like and human-readable and understandable, which reduces the time needed for a person to create the recipe. It is a language in that it has nouns (*variables* or *objects*), verbs (*functions*) and a structure or grammar that allows the programmer to write recipes for different functionalities. 
+Using Python requires typing!! 
 
+You write *code* in Python 
+
++ that is then interpreted by the Python interpreter 
++ to make the computer implement your instructions. 
+<!-- #endregion -->
+
+<!-- #region slideshow={"slide_type": "subslide"} -->
+Your code is like a recipe that you write for the computer. 
+
++ Python is a *high-level language* 
+    - the code is English-like and human-readable and understandable, 
+    - it has 
+        - nouns (*variables* or *objects*), 
+        - verbs (*functions*) and 
+        - a structure or grammar 
+<!-- #endregion -->
+
+<!-- #region slideshow={"slide_type": "slide"} -->
 ## An example
 
 Let's consider the following piece of Python code:
+<!-- #endregion -->
 
-```python
+```python slideshow={"slide_type": "fragment"}
 # set a splitting point
 split_point = 3
 
@@ -50,8 +82,25 @@ for i in range(10): # count from 0 to 9
 
 print("lower:", lower)
 print('upper:', upper)
-
 ```
+
+<!-- #region slideshow={"slide_type": "skip"} -->
+# set a splitting point
+split_point = 3
+
+# make two empty lists
+lower = []; upper = []
+
+# Split numbers from 0 to 9 into two groups, one lower or equal to the split point and one higher than the split point
+for i in range(10): # count from 0 to 9
+  if (i <= split_point):
+    lower.append(i)
+  else: 
+    upper.append(i)
+
+print("lower:", lower)
+print('upper:', upper)
+<!-- #endregion -->
 
 First note that any line (or part of a line) starting with `#` is a **comment** in Python and is ignored by the interpreter. This makes it possible for us to write substantial text to remind us what each piece of our code does
 
@@ -687,31 +736,6 @@ x = list(range(10))
 my_mean(x)
 ```
 
-### Documenting your functions
-
-Python has an in-built documentation system that allows you to readily document your functions using *docstrings*. Basically, right after the first line with `def`, you can create a (multi-line) string that documents the function and will be printed if the help system is used for that function. You can create a multi-line string by bounding it with 3 quotation marks on each side. For example,
-
-```python
-def my_mean(x):
-  """
-  A function to compute the mean of a list of numbers.
-  
-  INPUTS:
-  x : a list containing numbers
-  
-  OUTPUT:
-  The arithmetic mean of the list of numbers
-  """
-  y = 0
-  for u in x:
-    y = y + u
-  y = y / len(x)
-  return(y)
-
-```
-
-
-
 ## Modules and Packages
 
 Python itself was built with the principle "Batteries included", in that it already comes with useful tools for a wide variety of tasks. On top of that, there is a large ecosystem of third-party tools and packages that can be added on to add more functionality. Almost all the data science functionality in Python comes from third-party packages. 
@@ -884,24 +908,3 @@ where the first line of the `environment.yml` file creates the environment name.
 >
 > This avoids potential issues with dependencies that may not be compatible across operating systems
 
-##Seeking help
-
-Most Python functions have some amount of documentation. As we saw when we created our own function, this documentation is part of the function definition. It can be accessed at the Python console in 2 ways:
-
-```python
-help(sum)
-```
-
-or 
-
-```python
-sum?
-```
-
-You can see the documentation of the `my_sum` function we created earlier in this way, as well.
-
-Other resources that are your friends in the internet age are 
-
-1. [Stack Overflow](https://stackoverflow.com): This is a Q & A site. To find Python-related questions, use the tag `python`. 
-2. Google: Of course.
-3. [Cross-Validated](https://stats.stackexchange.com): A data science oriented Q & A site. Once again, use the tag `python`. 

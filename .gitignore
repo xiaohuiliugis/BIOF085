@@ -1,3 +1,2 @@
 *.ipynb
-*/**/.ipynb-checkpoints/*
-
+**/.ipynb_checkpoints/*

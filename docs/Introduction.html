@@ -1,0 +1,896 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta name="author" content="Abhijit Dasgupta, PhD" />
+  <title>Introduction to Data Science using Python</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="Introduction_files/reveal.js-3.3.0.1/css/reveal.css"/>
+
+
+
+<link rel="stylesheet" href="Introduction_files/reveal.js-3.3.0.1/css/theme/moon.css" id="theme">
+
+<style type="text/css">
+.reveal section img {
+  background: rgba(255, 255, 255, 0.85);
+}
+</style>
+
+  <!-- some tweaks to reveal css -->
+  <style type="text/css">
+    .reveal h1 { font-size: 2.0em; }
+    .reveal h2 { font-size: 1.5em;  }
+    .reveal h3 { font-size: 1.25em;	}
+    .reveal h4 { font-size: 1em;	}
+
+    .reveal .slides>section,
+    .reveal .slides>section>section {
+      padding: 0px 0px;
+    }
+
+
+
+    .reveal table {
+      border-width: 1px;
+      border-spacing: 2px;
+      border-style: dotted;
+      border-color: gray;
+      border-collapse: collapse;
+      font-size: 0.7em;
+    }
+
+    .reveal table th {
+      border-width: 1px;
+      padding-left: 10px;
+      padding-right: 25px;
+      font-weight: bold;
+      border-style: dotted;
+      border-color: gray;
+    }
+
+    .reveal table td {
+      border-width: 1px;
+      padding-left: 10px;
+      padding-right: 25px;
+      border-style: dotted;
+      border-color: gray;
+    }
+
+
+  </style>
+
+    <style type="text/css">code{white-space: pre;}</style>
+
+
+<!-- Printing and PDF exports -->
+<script id="paper-css" type="application/dynamic-css">
+
+/* Default Print Stylesheet Template
+   by Rob Glazebrook of CSSnewbie.com
+   Last Updated: June 4, 2008
+
+   Feel free (nay, compelled) to edit, append, and
+   manipulate this file as you see fit. */
+
+
+@media print {
+
+	/* SECTION 1: Set default width, margin, float, and
+	   background. This prevents elements from extending
+	   beyond the edge of the printed page, and prevents
+	   unnecessary background images from printing */
+	html {
+		background: #fff;
+		width: auto;
+		height: auto;
+		overflow: visible;
+	}
+	body {
+		background: #fff;
+		font-size: 20pt;
+		width: auto;
+		height: auto;
+		border: 0;
+		margin: 0 5%;
+		padding: 0;
+		overflow: visible;
+		float: none !important;
+	}
+
+	/* SECTION 2: Remove any elements not needed in print.
+	   This would include navigation, ads, sidebars, etc. */
+	.nestedarrow,
+	.controls,
+	.fork-reveal,
+	.share-reveal,
+	.state-background,
+	.reveal .progress,
+	.reveal .backgrounds {
+		display: none !important;
+	}
+
+	/* SECTION 3: Set body font face, size, and color.
+	   Consider using a serif font for readability. */
+	body, p, td, li, div {
+		font-size: 20pt!important;
+		font-family: Georgia, "Times New Roman", Times, serif !important;
+		color: #000;
+	}
+
+	/* SECTION 4: Set heading font face, sizes, and color.
+	   Differentiate your headings from your body text.
+	   Perhaps use a large sans-serif for distinction. */
+	h1,h2,h3,h4,h5,h6 {
+		color: #000!important;
+		height: auto;
+		line-height: normal;
+		font-family: Georgia, "Times New Roman", Times, serif !important;
+		text-shadow: 0 0 0 #000 !important;
+		text-align: left;
+		letter-spacing: normal;
+	}
+	/* Need to reduce the size of the fonts for printing */
+	h1 { font-size: 28pt !important;  }
+	h2 { font-size: 24pt !important; }
+	h3 { font-size: 22pt !important; }
+	h4 { font-size: 22pt !important; font-variant: small-caps; }
+	h5 { font-size: 21pt !important; }
+	h6 { font-size: 20pt !important; font-style: italic; }
+
+	/* SECTION 5: Make hyperlinks more usable.
+	   Ensure links are underlined, and consider appending
+	   the URL to the end of the link for usability. */
+	a:link,
+	a:visited {
+		color: #000 !important;
+		font-weight: bold;
+		text-decoration: underline;
+	}
+	/*
+	.reveal a:link:after,
+	.reveal a:visited:after {
+		content: " (" attr(href) ") ";
+		color: #222 !important;
+		font-size: 90%;
+	}
+	*/
+
+
+	/* SECTION 6: more reveal.js specific additions by @skypanther */
+	ul, ol, div, p {
+		visibility: visible;
+		position: static;
+		width: auto;
+		height: auto;
+		display: block;
+		overflow: visible;
+		margin: 0;
+		text-align: left !important;
+	}
+	.reveal pre,
+	.reveal table {
+		margin-left: 0;
+		margin-right: 0;
+	}
+	.reveal pre code {
+		padding: 20px;
+		border: 1px solid #ddd;
+	}
+	.reveal blockquote {
+		margin: 20px 0;
+	}
+	.reveal .slides {
+		position: static !important;
+		width: auto !important;
+		height: auto !important;
+
+		left: 0 !important;
+		top: 0 !important;
+		margin-left: 0 !important;
+		margin-top: 0 !important;
+		padding: 0 !important;
+		zoom: 1 !important;
+
+		overflow: visible !important;
+		display: block !important;
+
+		text-align: left !important;
+		-webkit-perspective: none;
+		   -moz-perspective: none;
+		    -ms-perspective: none;
+		        perspective: none;
+
+		-webkit-perspective-origin: 50% 50%;
+		   -moz-perspective-origin: 50% 50%;
+		    -ms-perspective-origin: 50% 50%;
+		        perspective-origin: 50% 50%;
+	}
+	.reveal .slides section {
+		visibility: visible !important;
+		position: static !important;
+		width: auto !important;
+		height: auto !important;
+		display: block !important;
+		overflow: visible !important;
+
+		left: 0 !important;
+		top: 0 !important;
+		margin-left: 0 !important;
+		margin-top: 0 !important;
+		padding: 60px 20px !important;
+		z-index: auto !important;
+
+		opacity: 1 !important;
+
+		page-break-after: always !important;
+
+		-webkit-transform-style: flat !important;
+		   -moz-transform-style: flat !important;
+		    -ms-transform-style: flat !important;
+		        transform-style: flat !important;
+
+		-webkit-transform: none !important;
+		   -moz-transform: none !important;
+		    -ms-transform: none !important;
+		        transform: none !important;
+
+		-webkit-transition: none !important;
+		   -moz-transition: none !important;
+		    -ms-transition: none !important;
+		        transition: none !important;
+	}
+	.reveal .slides section.stack {
+		padding: 0 !important;
+	}
+	.reveal section:last-of-type {
+		page-break-after: avoid !important;
+	}
+	.reveal section .fragment {
+		opacity: 1 !important;
+		visibility: visible !important;
+
+		-webkit-transform: none !important;
+		   -moz-transform: none !important;
+		    -ms-transform: none !important;
+		        transform: none !important;
+	}
+	.reveal section img {
+		display: block;
+		margin: 15px 0px;
+		background: rgba(255,255,255,1);
+		border: 1px solid #666;
+		box-shadow: none;
+	}
+
+	.reveal section small {
+		font-size: 0.8em;
+	}
+
+}  
+</script>
+
+
+<script id="pdf-css" type="application/dynamic-css">
+    
+/**
+ * This stylesheet is used to print reveal.js
+ * presentations to PDF.
+ *
+ * https://github.com/hakimel/reveal.js#pdf-export
+ */
+
+* {
+	-webkit-print-color-adjust: exact;
+}
+
+body {
+	margin: 0 auto !important;
+	border: 0;
+	padding: 0;
+	float: none !important;
+	overflow: visible;
+}
+
+html {
+	width: 100%;
+	height: 100%;
+	overflow: visible;
+}
+
+/* Remove any elements not needed in print. */
+.nestedarrow,
+.reveal .controls,
+.reveal .progress,
+.reveal .playback,
+.reveal.overview,
+.fork-reveal,
+.share-reveal,
+.state-background {
+	display: none !important;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	text-shadow: 0 0 0 #000 !important;
+}
+
+.reveal pre code {
+	overflow: hidden !important;
+	font-family: Courier, 'Courier New', monospace !important;
+}
+
+ul, ol, div, p {
+	visibility: visible;
+	position: static;
+	width: auto;
+	height: auto;
+	display: block;
+	overflow: visible;
+	margin: auto;
+}
+.reveal {
+	width: auto !important;
+	height: auto !important;
+	overflow: hidden !important;
+}
+.reveal .slides {
+	position: static;
+	width: 100%;
+	height: auto;
+
+	left: auto;
+	top: auto;
+	margin: 0 !important;
+	padding: 0 !important;
+
+	overflow: visible;
+	display: block;
+
+	-webkit-perspective: none;
+	   -moz-perspective: none;
+	    -ms-perspective: none;
+	        perspective: none;
+
+	-webkit-perspective-origin: 50% 50%; /* there isn't a none/auto value but 50-50 is the default */
+	   -moz-perspective-origin: 50% 50%;
+	    -ms-perspective-origin: 50% 50%;
+	        perspective-origin: 50% 50%;
+}
+
+.reveal .slides section {
+	page-break-after: always !important;
+
+	visibility: visible !important;
+	position: relative !important;
+	display: block !important;
+	position: relative !important;
+
+	margin: 0 !important;
+	padding: 0 !important;
+	box-sizing: border-box !important;
+	min-height: 1px;
+
+	opacity: 1 !important;
+
+	-webkit-transform-style: flat !important;
+	   -moz-transform-style: flat !important;
+	    -ms-transform-style: flat !important;
+	        transform-style: flat !important;
+
+	-webkit-transform: none !important;
+	   -moz-transform: none !important;
+	    -ms-transform: none !important;
+	        transform: none !important;
+}
+
+.reveal section.stack {
+	margin: 0 !important;
+	padding: 0 !important;
+	page-break-after: avoid !important;
+	height: auto !important;
+	min-height: auto !important;
+}
+
+.reveal img {
+	box-shadow: none;
+}
+
+.reveal .roll {
+	overflow: visible;
+	line-height: 1em;
+}
+
+/* Slide backgrounds are placed inside of their slide when exporting to PDF */
+.reveal section .slide-background {
+	display: block !important;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	z-index: -1;
+}
+
+/* All elements should be above the slide-background */
+.reveal section>* {
+	position: relative;
+	z-index: 1;
+}
+
+/* Display slide speaker notes when 'showNotes' is enabled */
+.reveal .speaker-notes-pdf {
+	display: block;
+	width: 100%;
+	max-height: none;
+	left: auto;
+	top: auto;
+	z-index: 100;
+}
+
+/* Display slide numbers when 'slideNumber' is enabled */
+.reveal .slide-number-pdf {
+	display: block;
+	position: absolute;
+	font-size: 14px;
+}
+
+</script>
+
+
+<script>
+var style = document.createElement( 'style' );
+style.type = 'text/css';
+var style_script_id = window.location.search.match( /print-pdf/gi ) ? 'pdf-css' : 'paper-css';
+var style_script = document.getElementById(style_script_id).text;
+style.innerHTML = style_script;
+document.getElementsByTagName('head')[0].appendChild(style);
+</script>
+
+    <link href="Introduction_files/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
+    <link href="Introduction_files/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+<section>
+    <h1 class="title">Introduction to Data Science using Python</h1>
+    <h2 class="author">Abhijit Dasgupta, PhD</h2>
+    <h3 class="date">May 12-14, 2020</h3>
+</section>
+
+<section><section id="abhijit-dasgupta" class="title-slide slide level1"><h1>Abhijit Dasgupta</h1></section><section id="background" class="slide level2">
+<h2>Background</h2>
+<ul>
+<li>Ph.D. in biostatistics (University of Washington)</li>
+<li>Post-doctoral training at National Cancer Institute</li>
+</ul>
+</section><section id="experience" class="slide level2">
+<h2>Experience</h2>
+<ul>
+<li>Biostatistician and data scientist</li>
+<li>Associated with NIH for over 15 years</li>
+<li>Over 15 years experience in Python, 20 years in R</li>
+<li>Teaches data science, statistics, programming and data visualization
+<ul>
+<li>NIH</li>
+<li>Georgetown</li>
+<li>Other government agencies, corporations</li>
+</ul></li>
+</ul>
+</section></section>
+<section><section id="online-workshops-a-brave-new-world" class="title-slide slide level1"><h1>Online workshops<br/>A brave new world</h1></section><section id="structure" class="slide level2">
+<h2>Structure</h2>
+<p>This workshop will be using hybrid methods</p>
+</section><section id="face-to-face" class="slide level2">
+<h2>Face-to-face</h2>
+<p>We will have face-to-face contact for about 50% of the time, through Zoom</p>
+<p>This will include lectures, exercies, Q &amp; A</p>
+</section><section id="online-material" class="slide level2">
+<h2>Online material</h2>
+<ol type="a">
+<li>screencasts</li>
+<li>slides</li>
+<li>videos</li>
+<li>progress checks</li>
+</ol>
+</section><section id="supplemental-material" class="slide level2">
+<h2>Supplemental material</h2>
+<p>There are PDF versions of Jupyter notebooks in Canvas, with links to actual notebooks</p>
+</section></section>
+<section><section id="schedule" class="title-slide slide level1"><h1>Schedule</h1></section><section id="day-one" class="slide level2">
+<h2>Day One</h2>
+<table>
+<colgroup>
+<col style="width: 5%" />
+<col style="width: 13%" />
+<col style="width: 21%" />
+<col style="width: 60%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Day</th>
+<th>Time</th>
+<th>Format</th>
+<th>Topics</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Day 1</td>
+<td>9am - noon</td>
+<td>In-person on Zoom</td>
+<td>Why data science in Python?<br />A Python primer for Data Science</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>1pm - 2pm</td>
+<td>In-person on Zoom</td>
+<td>Python tools for data science<br />Data wrangling, cleaning, summarizing and munging</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>2pm-4pm</td>
+<td>Asynchronous material</td>
+<td>Data munging</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>4pm-4:30pm</td>
+<td>In-person on Zoom</td>
+<td>Q &amp; A</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section><section id="day-two" class="slide level2">
+<h2>Day Two</h2>
+<table>
+<thead>
+<tr class="header">
+<th>Day</th>
+<th>Time</th>
+<th>Format</th>
+<th>Topics</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Day 2</td>
+<td>9am-10 am</td>
+<td>In person using Zoom</td>
+<td>Data visualization</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>10am-noon</td>
+<td>Asynchronous material</td>
+<td>Data visualization</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>1pm-2pm</td>
+<td>In person using Zoom</td>
+<td>Statistical Analysis using Python</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>2pm-4pm</td>
+<td>Asynchronous material</td>
+<td>Statstistical Analysis using Python</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>4pm-4:30pm</td>
+<td>In-person using Zoom</td>
+<td>Q &amp; A</td>
+</tr>
+<tr class="even">
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section><section id="day-three" class="slide level2">
+<h2>Day Three</h2>
+<table>
+<colgroup>
+<col style="width: 5%" />
+<col style="width: 13%" />
+<col style="width: 21%" />
+<col style="width: 60%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Day</th>
+<th>Time</th>
+<th>Format</th>
+<th>Topics</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Day 3</td>
+<td>9am-10am</td>
+<td>In person using Zoom</td>
+<td>Data analytics; Machine Learning</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>10am-noon</td>
+<td>Asynchronous material</td>
+<td>Data analytics; Machine Learning</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>1pm-2pm</td>
+<td>In person using Zoom</td>
+<td>String manipulation; Introduction to bioinformatics</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>2pm-3:30pm</td>
+<td>Asynchronous material</td>
+<td>Introduction to bioinformatics; working with other languages; <br />additional resources</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>3:30pm-4:30pm</td>
+<td>In-person using Zoom</td>
+<td>Q &amp; A, Miscellaneous topics</td>
+</tr>
+</tbody>
+</table>
+</section><section id="adaptability" class="slide level2">
+<h2>Adaptability</h2>
+<p>There will be some flexibility in materials depending on progress, interests, etc.</p>
+<p>Not much though, since we don’t have much time</p>
+</section></section>
+<section><section id="communications" class="title-slide slide level1"><h1>Communications</h1></section><section id="slack" class="slide level2">
+<h2>Slack</h2>
+<ul>
+<li>I will be available on Slack throughout the 3 days and beyond. Please use for questions, comments, private messages and the like.</li>
+<li>I will also send polls for feedback</li>
+</ul>
+</section><section id="e-mail" class="slide level2">
+<h2>E-mail</h2>
+<p>Email is less preferred, but is okay for longer form messages or more detailed questions</p>
+<p><a href="mailto:adasgupta@districtdatalabs.com" class="email">adasgupta@districtdatalabs.com</a></p>
+</section></section>
+<section><section id="introductions" class="title-slide slide level1"><h1>Introductions</h1></section><section id="section" class="slide level2">
+<h2></h2>
+<ul>
+<li>Who are you?</li>
+<li>What is your background?</li>
+<li>Why are you here?</li>
+</ul>
+</section></section>
+<section><section id="who-is-a-data-scientist" class="title-slide slide level1"><h1>Who is a data scientist?</h1></section><section id="one-definition" class="slide level2">
+<h2>One definition</h2>
+<p><img data-src="graphs/Data_Science_VD.png" /></p>
+<aside class="notes">
+<ol type="1">
+<li>It’s the confluence of statistics, computer science, domain knowledge</li>
+<li>You need all three to make this work</li>
+<li>We’ll be talking more about stat/CS than domain expertise here</li>
+</ol>
+</aside>
+</section><section id="unclear-definition" class="slide level2">
+<h2>Unclear definition</h2>
+<ul>
+<li>Statistician</li>
+<li>Computer scientist</li>
+<li>Database engineer</li>
+<li>Software engineer</li>
+<li>Data engineer</li>
+<li>Mathematician</li>
+</ul>
+<p>Some of the best ones I know are <br/> neurobiologists and physicists</p>
+</section><section id="a-broad-umbrella" class="slide level2">
+<h2>A broad umbrella</h2>
+<p>Anyone who wants to work with data to solve problems within particular domains</p>
+</section></section>
+<section><section id="data-science" class="title-slide slide level1"><h1>Data Science</h1></section><section id="what-it-involves" class="slide level2">
+<h2>What it involves</h2>
+<ol type="1">
+<li>Managing and cleaning data</li>
+<li><p>Interest in exploring relationships between things, informed by domain knowledge</p></li>
+<li>Statistical know-how</li>
+<li><p>Computational skills</p></li>
+<li><p>Tools</p></li>
+</ol>
+</section><section id="were-here-for-the-tools" class="slide level2">
+<h2>We’re here for the tools</h2>
+<p>The main two tools are</p>
+<ol type="1">
+<li>Python (<a href="https://www.python.org" class="uri">https://www.python.org</a>)</li>
+<li>R (<a href="https://www.r-project.org" class="uri">https://www.r-project.org</a>)</li>
+</ol>
+<p>There is a perpetual flame war between the two camps</p>
+<p>That is not important</p>
+</section></section>
+<section><section id="why-python" class="title-slide slide level1"><h1>Why Python?</h1></section><section id="pros" class="slide level2">
+<h2>Pros</h2>
+<ol type="1">
+<li>Very popular general purpose programming language</li>
+<li>Strong ecosystem through packages (over 230K projects)</li>
+<li>Succint syntax</li>
+<li><p>Reasonably fast while also relatively easy to program</p>
+<ul>
+<li>Computational time vs Developer time</li>
+</ul></li>
+<li>Self-documenting</li>
+<li>Easier to integrate into production pipelines that already use Python
+<ul>
+<li>Web frameworks (Django, Flask, …)</li>
+<li>Workflow managers (Luigi, …)</li>
+</ul></li>
+<li><p>Increasingly strong Data Science Stack</p></li>
+</ol>
+</section><section id="cons" class="slide level2">
+<h2>Cons</h2>
+<ol type="1">
+<li>Not a rich-enough ecosystem for some purposes</li>
+<li>More computer science-y, less statistical</li>
+<li>Poorer frameworks for display and dissemination of information</li>
+</ol>
+<p>These are areas where R tends to shine.</p>
+</section><section id="python-data-science-stack" class="slide level2">
+<h2>Python Data Science stack</h2>
+<p>Contributed packages over past 30 years</p>
+<ul>
+<li>To emulate Matlab
+<ul>
+<li>Numpy</li>
+<li>Scipy</li>
+<li>Matplotlib</li>
+</ul></li>
+<li>To emulate Maple
+<ul>
+<li>Sympy</li>
+</ul></li>
+<li>To add statistics/data science
+<ul>
+<li>Pandas</li>
+<li>Various data visualization packages
+<ul>
+<li>seaborn</li>
+<li>plotly</li>
+</ul></li>
+</ul></li>
+</ul>
+</section><section id="python-data-science-stack-1" class="slide level2">
+<h2>Python Data Science stack</h2>
+<ul>
+<li>Many more user-contributed packages</li>
+<li>The basic philosophy has been to concentrate on a few monolithic comprehensive packages
+<ul>
+<li>statsmodels (Statistics)</li>
+<li>scikit-learn (Machine Learning)</li>
+<li>pillow (Image analysis)</li>
+<li>nltk (Natural Language Processing)</li>
+<li>tensorflow &amp; PyTorch (Deep learning)</li>
+<li>PyMC3 (Bayesian learning)</li>
+</ul></li>
+</ul>
+</section><section id="python-as-glue" class="slide level2">
+<h2>Python as glue</h2>
+<p><img data-src="graphs/r_py_glue.png" /></p>
+<ul>
+<li>The <code>rpy2</code> Python package is not developed on Windows</li>
+<li>The <code>reticulate</code> R package actually works quite well</li>
+</ul>
+</section><section id="python-as-glue-1" class="slide level2">
+<h2>Python as glue</h2>
+<ol type="1">
+<li>Data I/O
+<ul>
+<li>We can read data from a variety of formats into Python
+<ul>
+<li>Some proprietary</li>
+<li>R, SAS, Stata, SQL, Parquet, JSON</li>
+</ul></li>
+</ul></li>
+<li>There are ways of running R, SAS, others from within Python</li>
+<li>The Jupyter sub-ecosystem allows the same interface for <a href="https://github.com/jupyter/jupyter/wiki/Jupyter-kernels">many languages</a>
+<ul>
+<li>R, SAS, Julia, Haskell, Javascript</li>
+</ul></li>
+</ol>
+</section></section>
+<section><section id="our-path-through-this-workshop" class="title-slide slide level1"><h1>Our path through this workshop</h1></section><section id="outline" class="slide level2">
+<h2>Outline</h2>
+<ol type="1">
+<li>A Python primer to get the basics of the language</li>
+<li>Using pandas for data I/O, manipulation, cleaning and munging</li>
+<li>Using matplotlib and seaborn for data visualization</li>
+<li>Using pandas, scipy and statsmodels for statistics</li>
+<li>Using scikit-learn for basic machine learning</li>
+<li>Applications
+<ul>
+<li>General examples</li>
+<li>High-level bioinformatics</li>
+<li>High-level string manipulation</li>
+</ul></li>
+<li>Introducing resources for further study</li>
+</ol>
+</section></section>
+    </div>
+  </div>
+
+  <script src="Introduction_files/reveal.js-3.3.0.1/lib/js/head.min.js"></script>
+  <script src="Introduction_files/reveal.js-3.3.0.1/js/reveal.js"></script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        // Display the page number of the current slide
+        slideNumber: true,
+        // Push each slide change to the browser history
+        history: true,
+        // Vertical centering of slides
+        center: false,
+        // Opens links in an iframe preview overlay
+        previewLinks: true,
+        // Transition style
+        transition: 'default', // none/fade/slide/convex/concave/zoom
+        // Transition style for full page slide backgrounds
+        backgroundTransition: 'default', // none/fade/slide/convex/concave/zoom
+
+
+
+        chalkboard: {
+          toggleNotesButton: true,
+          theme: 'whiteboard',
+        },
+
+        keyboard: {
+          67: function() { RevealChalkboard.toggleNotesCanvas() },    // toggle notes canvas when 'c' is pressed
+          66: function() { RevealChalkboard.toggleChalkboard() }, // toggle chalkboard when 'b' is pressed
+          46: function() { RevealChalkboard.clear() },    // clear chalkboard when 'DEL' is pressed
+           8: function() { RevealChalkboard.reset() },    // reset chalkboard data on current slide when 'BACKSPACE' is pressed
+          68: function() { RevealChalkboard.download() }, // downlad recorded chalkboard drawing when 'd' is pressed
+        },
+
+        // Optional reveal.js plugins
+        dependencies: [
+          { src: 'Introduction_files/reveal.js-3.3.0.1/plugin/notes/notes.js', async: true },
+          { src: 'Introduction_files/reveal.js-3.3.0.1/plugin/chalkboard/chalkboard.js', async: true },
+        ]
+      });
+    </script>
+  <!-- dynamically load mathjax for compatibility with self-contained -->
+  <script>
+    (function () {
+      var script = document.createElement("script");
+      script.type = "text/javascript";
+      script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+      document.getElementsByTagName("head")[0].appendChild(script);
+    })();
+  </script>
+
+<script>
+  (function() {
+    if (window.jQuery) {
+      Reveal.addEventListener( 'slidechanged', function(event) {  
+        window.jQuery(event.previousSlide).trigger('hidden');
+        window.jQuery(event.currentSlide).trigger('shown');
+      });
+    }
+  })();
+</script>
+
+
+  </body>
+</html>
