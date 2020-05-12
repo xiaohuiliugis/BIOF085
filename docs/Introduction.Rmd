@@ -158,6 +158,15 @@ Anyone who wants to work with data to solve problems within particular domains
 
 ## What it involves
 
+![DSPipeline](graphs/DSPipeline.png)
+
+## What it involves
+
+![data-science-explore](graphs/data-science-explore.png)
+
+
+## What it involves
+
 1. Managing and cleaning data
 1. Interest in exploring relationships between things, informed by domain knowledge
 
@@ -166,6 +175,8 @@ Anyone who wants to work with data to solve problems within particular domains
 1. Computational skills
 
 1. Tools
+
+
 
 ## We're here for the tools
 
@@ -186,7 +197,7 @@ That is not important
 1. Strong ecosystem through packages (over 230K projects)
 1. Succint syntax 
 1. Reasonably fast while also relatively easy to program
-    
+  
     + Computational time vs Developer time
 1. Self-documenting
 1. Easier to integrate into production pipelines that already use Python

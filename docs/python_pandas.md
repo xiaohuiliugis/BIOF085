@@ -656,6 +656,8 @@ print(table5)
 
 Melting is the operation of collapsing multiple columns into 2 columns, where one column is formed by the old column names, and the other by the corresponding values. Some columns may be kept fixed and their data are repeated to maintain the interrelationships between the variables.
 
+![gather](graphs/gather.png )
+
 We'll start with loading some data on income and religion in the US from the Pew Research Center.
 
 ```python
@@ -722,6 +724,8 @@ print(ebola_parsed.head())
 ```
 
 ### Pivot/spread datasets
+
+![spread](graphs/spread.png )
 
 If we wanted to, we could also make two columns based on cases and deaths, so for each country and date you could easily read off the cases and deaths. This is achieved using the `pivot_table` function.
 
