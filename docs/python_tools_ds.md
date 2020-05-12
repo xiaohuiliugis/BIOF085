@@ -53,7 +53,7 @@ Numpy provides both arrays (vectors) and vectorized functions which are very fas
 
 ```python
 z = [1,2,3,4,5,6,7,8,9.3,10.6] # This is a list
-z_array = numpy.array(z)
+z_array = np.array(z)
 z_array
 ```
 
