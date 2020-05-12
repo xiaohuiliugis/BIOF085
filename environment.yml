@@ -1,0 +1,18 @@
+name: ds
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - numpy
+  - sympy
+  - pandas
+  - scipy
+  - seaborn
+  - jupyterlab
+  - jupyter
+  - spyder
+  - rise
+  - jupytext
+  - openpyxl
+prefix: /Users/abhijit/opt/miniconda3/envs/ds
+
