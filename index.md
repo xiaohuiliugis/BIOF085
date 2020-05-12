@@ -23,11 +23,11 @@ jupyter:
 
 ### Morning
 
-+ [Introduction to the workshop](Introduction.html)
-+ [A Python Primer](python_primer.md)
-+ [Python Tools for Data Science](python_tools_ds.md)
++ [Introduction to the workshop](docs/Introduction.html)
++ [A Python Primer](docs/python_primer.md)
++ [Python Tools for Data Science](docs/python_tools_ds.md)
 
 ### Afternoon
 
-+ [An Introduction to `pandas` for data ingestion and munging](python_pandas.md)
++ [An Introduction to `pandas` for data ingestion and munging](docs/python_pandas.md)
 
